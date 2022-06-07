@@ -16,7 +16,7 @@ NOTE: Some applications installed or some steps taken might not be needed. But I
    - Definitely needed.
    - Be sure to select "Add Anaconda3 to the system PATH environment variable" when installing. This is extremely useful.
 - [CMake](https://cmake.org/download/)
-   - Definitely needed.
+   - Might not be needed.
 - [MSYS2](https://www.msys2.org/)
    - Might not be needed.
    - Be sure to follow the given installation steps on that site.
@@ -30,13 +30,12 @@ The instructions below are directly from my teacher. I will change/update if or 
 - Open Command Prompt and copy/paste each line one by one into your terminal shell (active directory doesn't matter for setup):
    - conda create -n Summer2022 python=3.6.6
       - NOTE: Environment name doesn't have to be Summer2022. Name it whatever you want. Just remember when you see "Summer2022" you should enter your environment name.
-   - conda activate 2022
+   - conda activate Summer2022
    - pip install --upgrade pip
    - pip install opencv-contrib-python==4.0.1.24 numpy==1.19.5 pyyaml matplotlib pillow imageio tqdm six
-   - pip install tensorflow==1.12.0
-   - conda remove keras -force
-   - pip install keras==2.2.4 --no-deps
    - pip install https://pypi.python.org/packages/da/06/bd3e241c4eb0a662914b3b4875fc52dd176a9db0d4a2c915ac2ad8800e9e/dlib-19.7.0-cp36-cp36m-win_amd64.whl#md5=b7330a5b2d46420343fbed5df69e6a3f
+   - pip install tensorflow==1.12.0
+   - pip install keras==2.2.4 --no-deps
       - For me, just doing "pip install dlib" did not work. The only way to install dlib is to run the command with the link above.
    - conda deactive
 

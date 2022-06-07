@@ -49,41 +49,34 @@ print('\n')
 if faces == ():
 	print('No faces found.')
 
+# Shows the original importanted image before detections.
+#cv2.imshow('Original', img)
 
-a = 1
-while True:
-    # Shows the original importanted image before detections.
-    #cv2.imshow('Original', img)
+# We iterate through our faces array and draw a rectangle over each face in faces.
+# x, y => upperleft corner coordinates of face.
+# width(w) of rectangle in the face.
+# height(h) of rectangle in the face.
+# grey means the input image to the detector.
+for (x, y, w, h) in faces:
+    # Draw pink rectangle around face.
+    cv2.rectangle(img, (x, y), (x + w, y + h), (127, 0, 255), 2)
+    cv2.imshow('Face Detection', img)
+    cv2.waitKey(1000)
 
+    # We crop the face out of image.
+    roi_gray = gray_img[y:y+h, x:x+w]
+    roi_color = img[y:y+h, x:x+w]
+    eyes = eye_classifier.detectMultiScale(roi_gray)
 
-    # We iterate through our faces array and draw a rectangle over each face in faces.
-    # x, y => upperleft corner coordinates of face.
-    # width(w) of rectangle in the face.
-    # height(h) of rectangle in the face.
-    # grey means the input image to the detector.
-    for (x, y, w, h) in faces:
-        # Draw pink rectangle around face.
-        cv2.rectangle(img, (x, y), (x + w, y + h), (127, 0, 255), 2)
-        cv2.imshow('Face Detection', img)
+    print('List for location for eyes')
+    print(eyes)
+    print()
 
-        # We crop the face out of image.
-        roi_gray = gray_img[y:y+h, x:x+w]
-        roi_color = img[y:y+h, x:x+w]
-        eyes = eye_classifier.detectMultiScale(roi_gray)
-
-        if a < 2:
-            print('List for location for eyes')
-            print(eyes)
-            print('\n')
-            a = 2
-
-        for (ex, ey, ew, eh) in eyes:
-            # Draw the rectangle around eyes.
-            cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (255, 255, 0), 2)
-            cv2.imshow('Eye Detection', img)
-
-    if cv2.waitKey(1) == 13:  # 13 is the Enter Key.
-        break
+    for (ex, ey, ew, eh) in eyes:
+        # Draw the rectangle around eyes.
+        cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (255, 255, 0), 2)
+        cv2.imshow('Eye Detection', img)
+        cv2.waitKey(1000)
 
 cv2.destroyAllWindows()
 
