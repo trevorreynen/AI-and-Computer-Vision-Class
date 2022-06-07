@@ -4,7 +4,7 @@
 # Lab Due: Tue. 06/07/2022
 # Trevor Reynen
 
-# Demonstrate how to use .Canny() for edge detection.
+# Demonstrates how to use .Canny() for edge detection.
 
 # Imports.
 import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
