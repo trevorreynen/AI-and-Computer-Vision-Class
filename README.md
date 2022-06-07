@@ -1,6 +1,6 @@
 # CSCI-509 - AI & Computer Vision | Summer 2022 | USC Upstate
 
-This is a collection of all labs and homework done in my CSCI-509 - AI & Computer Vision class. I do not claim to own any of the images being used as examples for educational purposes and testing.
+This is a collection of all labs and homework done in my CSCI-509 - AI & Computer Vision class. I do not claim to own any of the images/videos/etc. being used as examples for educational purposes and testing.
 
 **Everything in this README file will be directed at a Windows 10/11 environment. I will not be showing linux commands necessary to get this working.**
 
