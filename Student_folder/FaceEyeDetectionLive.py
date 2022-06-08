@@ -4,17 +4,17 @@
 # Lab Due: Wed. 06/08/2022
 # Trevor Reynen
 
+# Let's make a live face and eye detection, keeping the face in view at all times.
+
 # Imports.
 import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
 import numpy as np  # NumPy is an important library used for numerical computing.
 
-# Let's make a live face and eye detection, keeping the face in view at all times.
-
 # Create face_classifier object.
-face_classifier = cv2.CascadeClassifier('Haarcascades/haarcascade_frontalface_default.xml')
+face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_default.xml')
 
 # Create eye_classifier object.
-eye_classifier = cv2.CascadeClassifier('Haarcascades/haarcascade_eye.xml')
+eye_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_eye.xml')
 
 # The function will detect both the faces and eyes given in the image.
 def face_eye_detector(img, size=0.3):
@@ -48,7 +48,7 @@ def face_eye_detector(img, size=0.3):
         eyes = eye_classifier.detectMultiScale(roi_gray)
 
         for (ex, ey, ew, eh) in eyes:
-            cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 0, 255), 2)
+            cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 0, 255), 2)
 
     #roi_color = cv2.flip(roi_color, 1)
 
@@ -60,10 +60,7 @@ def face_eye_detector(img, size=0.3):
 
 
 cap = cv2.VideoCapture(0)
-#cap = cv2.VideoCapture('Clips/PeopleWalkingNY.mp4')
 
-# Replace 'while True:'  with  'while cap.isOpened():' when using a video instead of camera.
-#while cap.isOpened():
 while True:
     ret, frame = cap.read()
 

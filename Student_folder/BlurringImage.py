@@ -8,10 +8,8 @@
 import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
 import numpy as np  # NumPy is an important library used for numerical computing.
 
-
-# Load image into Python program.
-# image = cv2.imread('images/scene1.jpg')
-image = cv2.imread('images/single-face1.jpg')
+# image = cv2.imread('./images/scene1.jpg')
+image = cv2.imread('./images/single-face1.jpg')
 
 a = 1
 

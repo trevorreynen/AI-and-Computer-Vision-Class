@@ -4,11 +4,11 @@
 # Lab Due: Wed. 06/08/2022
 # Trevor Reynen
 
+# Face & Eye Detection using HAAR Cascade classifiers.
+
 # Imports.
 import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
 import numpy as np  # NumPy is an important library used for numerical computing.
-
-# Face & Eye Detection using HAAR Cascade classifiers.
 
 # Search classifier opencv/data/haarcascades/.
 
@@ -21,29 +21,26 @@ import numpy as np  # NumPy is an important library used for numerical computing
 # We use some pre-trained classifiers that have been provided by OpenCV.
 # These pre-trained classifiers are stored as .xml files.
 
-
 # Create face_classifier object.
-face_classifier = cv2.CascadeClassifier('Haarcascades/haarcascade_frontalface_default.xml')
+face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_default.xml')
 
 # Create eye_classifier object.
-eye_classifier = cv2.CascadeClassifier('Haarcascades/haarcascade_eye.xml')
-
+eye_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_eye.xml')
 
 # Load our image and convert it into grayscale.
-img = cv2.imread('images/ManyFaces.jpg')
-# img = cv2.imread('images/ManyFaces2.jpg')
-# img = cv2.imread('images/ManyFaces3.jpg')
-# img = cv2.imread('images/candy.jpg')
+img = cv2.imread('./images/ManyFaces.jpg')
+#img = cv2.imread('./images/ManyFaces2.jpg')
+#img = cv2.imread('./images/ManyFaces3.jpg')
+#img = cv2.imread('./images/candy.jpg')
 
 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # Our classifier returns the ROI of the detected face as a 4-element tuple.
 # If faces are found, it returns array of positions of detected faces as Rect(x, y, w, h).
-# It is the list of list (locations of many faces)
 faces = face_classifier.detectMultiScale(gray_img, 1.3, 5)
 print('List for location for faces:')
 print(faces)
-print('\n')
+print()
 
 
 if faces == ():
