@@ -1,7 +1,7 @@
 # BlurringImage.py
 
 # CSCI-509 - AI & Computer Vision | Summer 2022 | USC Upstate
-# Lab Due: Mon. 06/06/2022
+# Mon. 06/06/2022
 # Trevor Reynen
 
 # Imports.
@@ -14,7 +14,6 @@ image = cv2.imread('./images/single-face1.jpg')
 a = 1
 
 while image.isOpened():
-    # Display the image.
     cv2.imshow('Original Image', image)
 
     # Blurry image using convolution with kernel.
@@ -24,6 +23,7 @@ while image.isOpened():
     # We multiple by 1 / 49 to normalize the matrix.
     kernel_7x7 = np.ones((7, 7), np.float32) / 49
 
+    # Simple minded way to prevent the print below from spamming console.
     if a < 2:
         print(kernel_7x7)
         a = 2

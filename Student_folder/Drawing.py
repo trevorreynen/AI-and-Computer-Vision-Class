@@ -1,7 +1,7 @@
 # Drawing.py
 
 # CSCI-509 - AI & Computer Vision | Summer 2022 | USC Upstate
-# Lab Due: Tue. 06/07/2022
+# Tue. 06/07/2022
 # Trevor Reynen
 
 # Draw the picture using pencil effects.
@@ -39,9 +39,9 @@ def sketch(image):
 
 # Use while loop to continuously pull the image from webcam using cap.read().
 while True:
-    # Ret tells you whether you are successful.
-    # Frame is your live image.
+    # Ret tells you whether you are successful. Frame is your live image.
     ret, frame = cap.read()
+
     cv2.imshow('Original Image', frame)
     cv2.imshow('Live Drawing', sketch(frame))
 

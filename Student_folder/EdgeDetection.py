@@ -1,7 +1,7 @@
 # EdgeDetection.py
 
 # CSCI-509 - AI & Computer Vision | Summer 2022 | USC Upstate
-# Lab Due: Tue. 06/07/2022
+# Tue. 06/07/2022
 # Trevor Reynen
 
 # Demonstrates how to use .Canny() for edge detection.

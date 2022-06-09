@@ -32,7 +32,7 @@ The instructions below are directly from my teacher. I will change/update if or 
       - NOTE: Environment name doesn't have to be Summer2022. Name it whatever you want. Just remember when you see "Summer2022" you should enter your environment name.
    - conda activate Summer2022
    - pip install --upgrade pip
-   - pip install opencv-contrib-python==4.0.1.24 numpy==1.19.5 pyyaml matplotlib pillow imageio tqdm six
+   - pip install opencv-contrib-python==4.0.1.24 numpy==1.19.5 pyyaml matplotlib pillow imageio tqdm six imutils
    - pip install https://pypi.python.org/packages/da/06/bd3e241c4eb0a662914b3b4875fc52dd176a9db0d4a2c915ac2ad8800e9e/dlib-19.7.0-cp36-cp36m-win_amd64.whl#md5=b7330a5b2d46420343fbed5df69e6a3f
    - pip install tensorflow==1.12.0
    - pip install keras==2.2.4 --no-deps

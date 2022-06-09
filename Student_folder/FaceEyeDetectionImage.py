@@ -1,7 +1,7 @@
 # FaceEyeDetectionImage.py
 
 # CSCI-509 - AI & Computer Vision | Summer 2022 | USC Upstate
-# Lab Due: Wed. 06/08/2022
+# Wed. 06/08/2022
 # Trevor Reynen
 
 # Face & Eye Detection using HAAR Cascade classifiers.
@@ -28,12 +28,12 @@ face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_
 eye_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_eye.xml')
 
 # Load our image and convert it into grayscale.
-img = cv2.imread('./images/ManyFaces.jpg')
-#img = cv2.imread('./images/ManyFaces2.jpg')
-#img = cv2.imread('./images/ManyFaces3.jpg')
-#img = cv2.imread('./images/candy.jpg')
+image = cv2.imread('./images/ManyFaces.jpg')
+#image = cv2.imread('./images/ManyFaces2.jpg')
+#image = cv2.imread('./images/ManyFaces3.jpg')
+#image = cv2.imread('./images/candy.jpg')
 
-gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+gray_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # Our classifier returns the ROI of the detected face as a 4-element tuple.
 # If faces are found, it returns array of positions of detected faces as Rect(x, y, w, h).
@@ -42,12 +42,11 @@ print('List for location for faces:')
 print(faces)
 print()
 
-
 if faces == ():
 	print('No faces found.')
 
 # Shows the original importanted image before detections.
-#cv2.imshow('Original', img)
+#cv2.imshow('Original', image)
 
 # We iterate through our faces array and draw a rectangle over each face in faces.
 # x, y => upperleft corner coordinates of face.
@@ -56,13 +55,13 @@ if faces == ():
 # grey means the input image to the detector.
 for (x, y, w, h) in faces:
     # Draw pink rectangle around face.
-    cv2.rectangle(img, (x, y), (x + w, y + h), (127, 0, 255), 2)
-    cv2.imshow('Face Detection', img)
+    cv2.rectangle(image, (x, y), (x + w, y + h), (127, 0, 255), 2)
+    cv2.imshow('Face Detection', image)
     cv2.waitKey(1000)
 
-    # We crop the face out of image.
+    # Crop the face out of full frame.
     roi_gray = gray_img[y:y+h, x:x+w]
-    roi_color = img[y:y+h, x:x+w]
+    roi_color = image[y:y+h, x:x+w]
     eyes = eye_classifier.detectMultiScale(roi_gray)
 
     print('List for location for eyes')
@@ -72,7 +71,7 @@ for (x, y, w, h) in faces:
     for (ex, ey, ew, eh) in eyes:
         # Draw the rectangle around eyes.
         cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (255, 255, 0), 2)
-        cv2.imshow('Eye Detection', img)
+        cv2.imshow('Eye Detection', image)
         cv2.waitKey(1000)
 
 cv2.destroyAllWindows()

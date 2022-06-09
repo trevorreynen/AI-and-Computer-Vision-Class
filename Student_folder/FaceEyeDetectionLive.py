@@ -1,7 +1,7 @@
 # FaceEyeDetectionLive.py
 
 # CSCI-509 - AI & Computer Vision | Summer 2022 | USC Upstate
-# Lab Due: Wed. 06/08/2022
+# Wed. 06/08/2022
 # Trevor Reynen
 
 # Let's make a live face and eye detection, keeping the face in view at all times.
@@ -16,10 +16,11 @@ face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_
 # Create eye_classifier object.
 eye_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_eye.xml')
 
+
 # The function will detect both the faces and eyes given in the image.
-def face_eye_detector(img, size=0.3):
+def face_eye_detector(image, size=0.3):
     # Convert image to grayscale.
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     # Our classifier returns the ROI of the detected face as a 4-element tuple.
     # If faces are found, it returns array of positions of detected faces as Rect(x, y, w, h).
@@ -27,7 +28,7 @@ def face_eye_detector(img, size=0.3):
 
     # When no faces are detected, face_classifier returns empty tuple.
     if faces == ():
-        return img
+        return image
 
     # We iterate through our faces array and draw a rectangle over each face in faces.
     for (x, y, w, h) in faces:
@@ -38,11 +39,11 @@ def face_eye_detector(img, size=0.3):
         h = h + 25
 
         # Draw rectangle around face.
-        cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 3)
+        cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 3)
 
         # We crop the face out of image.
         roi_gray = gray[y:y+h, x:x+w]
-        roi_color = img[y:y+h, x:x+w]
+        roi_color = image[y:y+h, x:x+w]
 
         # Once we get these locations, we can create ROI for the face and apply detection on this ROI.
         eyes = eye_classifier.detectMultiScale(roi_gray)
@@ -56,7 +57,7 @@ def face_eye_detector(img, size=0.3):
     #return (roi_color)
 
     # Show full image.
-    return img
+    return image
 
 
 cap = cv2.VideoCapture(0)

@@ -1,7 +1,7 @@
 # PedestrianDetection.py
 
 # CSCI-509 - AI & Computer Vision | Summer 2022 | USC Upstate
-# Lab Due: Thu. 06/09/2022
+# Thu. 06/09/2022
 # Trevor Reynen
 
 # Locate pedestrians in an video/image.
@@ -43,21 +43,21 @@ while cap.isOpened():
     vidHeight = cap.get(4)
     xPlacement = vidWidth * 0.3
     yPlacement = vidHeight * 0.92
-
-    # Set text font and placement (bottom left corner of the texts position)
-    font = cv2.FONT_HERSHEY_SIMPLEX
     org = (int(xPlacement), int(yPlacement))
 
     # Extract bounding boxes for any bodies identified.
     for (x, y, w, h) in bodies:
+        # Add a box around each pedestrian detected.
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 255), 2)
+
         cv2.imshow('Pedestrians', frame)
 
+        # Add the text which updates live based on number of cars actively in frame.
         pick = non_max_suppression(bodies, probs=None, overlapThresh=0.65)
         label = 'Pedestrians in frame: '
         numPeople = len(pick)
         combined = label + str(numPeople)
-        cv2.putText(frame, str(combined), org, font, 1, (255, 255, 255), 3)
+        cv2.putText(frame, str(combined), org, cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 3)
 
     if cv2.waitKey(1) == 13:  # 13 is the Enter Key.
         break

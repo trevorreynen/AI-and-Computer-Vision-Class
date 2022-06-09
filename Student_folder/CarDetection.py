@@ -1,7 +1,7 @@
 # CarDetection.py
 
 # CSCI-509 - AI & Computer Vision | Summer 2022 | USC Upstate
-# Lab Due: Thu. 06/09/2022
+# Thu. 06/09/2022
 # Trevor Reynen
 
 # Detect cars from Cars.avi in Clips folder.
@@ -31,16 +31,15 @@ while cap.isOpened():
     vidHeight = cap.get(4)
     xPlacement = vidWidth * 0.01
     yPlacement = vidHeight * 0.1
-
-    # Set text font and placement (bottom left corner of the texts position)
-    font = cv2.FONT_HERSHEY_SIMPLEX
     org = (int(xPlacement), int(yPlacement))
 
-
     for (x, y, w, h) in cars:
+        # Add a box around each car detected.
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
+
         cv2.imshow('Cars', frame)
 
+        # Add the text which updates live based on number of cars actively in frame.
         pick = non_max_suppression(cars, probs=None, overlapThresh=0.65)
         label = 'Cars in frame: '
         numCars = len(pick)
