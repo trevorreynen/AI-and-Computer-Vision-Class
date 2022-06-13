@@ -29,13 +29,13 @@ def face_extractor(img):
     faces = face_classifier.detectMultiScale(gray, 1.3, 5)
 
     if faces is ():
-        return (None)
+        return None
 
     # Crop all faces found.
     for (x, y, w, h) in faces:
-        cropped_face = img[y:y + h, x:x + w]
+        cropped_face = img[y:y+h, x:x+w]
 
-    return (cropped_face)
+    return cropped_face
 
 
 count = 0
@@ -60,7 +60,7 @@ while cap.isOpened():
         cv2.imshow('Face Cropper', face)
     else:
 		# If face is not found, do nothing.
-        print('Face not found')
+        print('Face not found.')
         pass
 
     if cv2.waitKey(1) == 13 or count == 300:  # 13 is the Enter key.
