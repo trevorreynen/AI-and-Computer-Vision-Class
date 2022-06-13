@@ -62,7 +62,7 @@ def face_eye_detector(image, size=0.3):
 
 cap = cv2.VideoCapture(0)
 
-while True:
+while cap.isOpened():
     ret, frame = cap.read()
 
     cv2.imshow('Live Face and Eye Extractor', face_eye_detector(frame))

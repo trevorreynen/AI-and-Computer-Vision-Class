@@ -16,7 +16,6 @@ import numpy as np  # NumPy is an important library used for numerical computing
 import sys          # sys is used to manipulate different parts of the Python runtime environment.
 import os           # os provides functions for interacting with the operating system.
 
-
 # Load HAAR face classifier.
 face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_default.xml')
 
@@ -59,7 +58,7 @@ while cap.isOpened():
         cv2.putText(face, str(count), (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 2)
         cv2.imshow('Face Cropper', face)
     else:
-		# If face is not found, do nothing.
+        # If face is not found, do nothing.
         print('Face not found.')
         pass
 

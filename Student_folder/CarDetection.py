@@ -10,7 +10,6 @@
 # Imports.
 import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
 import numpy as np  # NumPy is an important library used for numerical computing.
-from imutils.object_detection import non_max_suppression
 
 # Create our body classifier, car_slassifier.
 car_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_car.xml')
@@ -30,9 +29,10 @@ while cap.isOpened():
     vidWidth = cap.get(3)
     vidHeight = cap.get(4)
     xPlacement = vidWidth * 0.01
-    yPlacement = vidHeight * 0.1
+    yPlacement = vidHeight * 0.95
     org = (int(xPlacement), int(yPlacement))
 
+    # Extract bounding boxes for any cars identified.
     for (x, y, w, h) in cars:
         # Add a box around each car detected.
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
@@ -40,11 +40,8 @@ while cap.isOpened():
         cv2.imshow('Cars', frame)
 
         # Add the text which updates live based on number of cars actively in frame.
-        pick = non_max_suppression(cars, probs=None, overlapThresh=0.65)
-        label = 'Cars in frame: '
-        numCars = len(pick)
-        combined = label + str(numCars)
-        cv2.putText(frame, str(combined), org, cv2.FONT_HERSHEY_SIMPLEX, 0.75, (255, 255, 255), 2)
+        label = 'Cars in frame: ' + str(len(cars))
+        cv2.putText(frame, label, org, cv2.FONT_HERSHEY_SIMPLEX, 0.75, (255, 255, 255), 2)
 
     if cv2.waitKey(1) == 13:  # 13 is the Enter Key.
         break

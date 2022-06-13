@@ -13,7 +13,7 @@ image = cv2.imread('./images/single-face1.jpg')
 
 a = 1
 
-while image.isOpened():
+while True:
     cv2.imshow('Original Image', image)
 
     # Blurry image using convolution with kernel.

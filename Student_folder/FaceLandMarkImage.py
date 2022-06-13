@@ -36,6 +36,7 @@ detector = dlib.get_frontal_face_detector()
 print(type(detector))
 print(type(predictor))
 
+
 class TooManyFaces(Exception):
     pass
 
@@ -48,21 +49,20 @@ def get_landmarks(image):
     # Ask the detector to find the bounding boxes of each face.
     # rects is an array of bounding boxes of faces detected.
     rects = detector(image, 1)
-    print('Value of face detector in get_landmarks')
+    #print('Value of face detector in get_landmarks')
     # rectangles[[(141, 201) (409, 468)]]
-    print(rects)
-    print()
+    #print(rects)
 
     if len(rects) > 1:
         raise TooManyFaces
+
     if len(rects) == 0:
         raise NoFaces
 
-    print('predictor in get_landmarks')
+    #print('predictor in get_landmarks')
 
     # Get the landmarks/parts for the face in box d.
-    print(predictor(image, rects[0]).parts())
-    print()
+    #print(predictor(image, rects[0]).parts())
 
     # rects[0] provide the bounding box for first face.
     # Reformatting the resulting array into numpy array.
@@ -71,7 +71,7 @@ def get_landmarks(image):
 
 # This function will plot the number and circle of key feature onto the face.
 def annotate_landmarks(image, landmarks):
-    #image = image.copy()
+    image = image.copy()
 
     # Enumerate returns an iterator yielding pairs of array coordinates and values.
     for idx, point in enumerate(landmarks):
@@ -97,9 +97,9 @@ cv2.imshow('Original', image)
 
 landmarks = get_landmarks(image)
 print('Landmarks')
-print('Shape of landmarks', landmarks.shape)
 print(landmarks)
 print()
+print('Shape of landmarks', landmarks.shape)
 
 image_with_landmarks = annotate_landmarks(image, landmarks)
 
@@ -110,16 +110,17 @@ cv2.imshow('Result', image_with_landmarks)
 def uniqueFile(file):
     fName, fExt = os.path.splitext(file)
     i = 1
+    saveFile = fName + '-' + str(i) + fExt
 
-    while os.path.exists(file):
-        file = fName + '-' + str(i) + fExt
+    while os.path.exists(saveFile):
+        saveFile = fName + '-' + str(i) + fExt
         i += 1
 
-    return file
+    return saveFile
 
 
 # Store the resulting image into the hard drive.
-cv2.imwrite(uniqueFile('image_with_landmarks.jpg'), image_with_landmarks)
+cv2.imwrite(uniqueFile('./images/saved/FaceLandMarkImage.jpg'), image_with_landmarks)
 cv2.waitKey(20000)
 
 cv2.destroyAllWindows()

@@ -43,7 +43,7 @@ print(faces)
 print()
 
 if faces == ():
-	print('No faces found.')
+    print('No faces found.')
 
 # Shows the original importanted image before detections.
 #cv2.imshow('Original', image)

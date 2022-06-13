@@ -87,7 +87,6 @@ def bottom_lip(landmarks):
     return int(bottom_lip_mean[:, 1])
 
 
-
 # Return image_with_landmarks and distance between top_lip and bottom_lip.
 def mouth_open(image):
     landmarks = get_landmarks(image)
@@ -103,18 +102,18 @@ def mouth_open(image):
     return image_with_landmarks, lip_distance
 
 
-cap = cv2.VideoCapture(0)
 yawns = 0
 yawn_status = False
+cap = cv2.VideoCapture(0)
 
-while True:
+while cap.isOpened():
     ret, frame = cap.read()
+
     image_landmarks, lip_distance = mouth_open(frame)
 
     prev_yawn_status = yawn_status
 
-    # Revise.
-    # This should be proportion of head frame.
+    # Revise. This should be proportion of head frame.
     # If the distance is greater than 5% of vertical distance of head frame, it is a yawn.
     #if lip_distance > 10:
     if lip_distance > 20:

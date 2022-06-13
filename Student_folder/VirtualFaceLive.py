@@ -198,6 +198,7 @@ def virtual_face(img, name):
     frame = cv2.resize(image, None, 1.5, 1.5, cv2.INTER_LINEAR)
 
     return image
+    #return frame
 
 
 def uniqueFile(file):
