@@ -14,7 +14,7 @@ import sys          # sys is used to manipulate different parts of the Python ru
 import os           # os provides functions for interacting with the operating system.
 
 
-# Our pretrained model that predicts the rectangles that correspond to the facial features of a face.
+# The pretrained model that predicts the rectangles that correspond to facial features of a face.
 PREDICTOR_PATH = './images/shape_predictor_68_face_landmarks.dat'
 SCALE_FACTOR = 1
 FEATHER_AMOUNT = 11
@@ -31,7 +31,8 @@ JAW_POINTS = list(range(0, 17))
 # Points used to line up the images.
 ALIGN_POINTS = (LEFT_BROW_POINTS + RIGHT_EYE_POINTS + LEFT_EYE_POINTS + RIGHT_BROW_POINTS + NOSE_POINTS + MOUTH_POINTS)
 
-# Points from the second image to overlay on the first. The convex hull of each element will be overlaid.
+# Points from the second image to overlay on the first. The convex hull of each element will
+# be overlaid.
 OVERLAY_POINTS = [LEFT_EYE_POINTS + RIGHT_EYE_POINTS + LEFT_BROW_POINTS + RIGHT_BROW_POINTS, NOSE_POINTS + MOUTH_POINTS]
 
 # Amount of blur to use during colour correction, as a fraction of the pupillary distance.
@@ -96,7 +97,9 @@ def transformation_from_points(points1, points2):
     #     sum ||s*R*p1,i + T - p2,i||^2
     # is minimized.
 
-    # Solve the procrustes problem by subtracting centroids, scaling by the standard deviation, and then using the SVD to calculate the rotation. See the following for more details: https://en.wikipedia.org/wiki/Orthogonal_Procrustes_problem
+    # Solve the procrustes problem by subtracting centroids, scaling by the standard deviation, and
+    # then using the SVD to calculate the rotation. See the following for more details:
+    # https://en.wikipedia.org/wiki/Orthogonal_Procrustes_problem
 
     points1 = points1.astype(np.float64)
     points2 = points2.astype(np.float64)
@@ -113,7 +116,9 @@ def transformation_from_points(points1, points2):
 
     U, S, Vt = np.linalg.svd(points1.T * points2)
 
-    # The R we seek is in fact the transpose of the one given by U * Vt. This is because the above formulation assumes the matrix goes on the right (with row vectors) where as our solution requires the matrix to be on the left (with column vectors).
+    # The R we seek is in fact the transpose of the one given by U * Vt. This is because the above
+    # formulation assumes the matrix goes on the right (with row vectors) where as our solution
+    # requires the matrix to be on the left (with column vectors).
     R = (U * Vt).T
 
     return np.vstack([np.hstack(((s2 / s1) * R, c2.T - (s2 / s1) * R * c1.T)), np.matrix([0., 0., 1.])])
@@ -151,6 +156,8 @@ def correct_colors(img1, img2, landmarks1):
     return img2.astype(np.float64) * img1_blur.astype(np.float64) / img2_blur.astype(np.float64)
 
 
+# ==========<  Code above was given (I formatted), code below was from lab video.  >==========
+
 # What is difficulty of virtual face or face swapping?
 # Getting key landmarks of face (such as eye, nose, and mouth) aligned correctly.
 
@@ -179,7 +186,8 @@ def virtualFace(image1, image2):
     # Produce warped mask (image 1 with image 2's face overlaid over it.)
     warped_mask = warp_img(mask, M, img1.shape)
 
-    # Produce a combined mask which ensures the features from image 1 are covered up and features for image 2 are visible.
+    # Produce a combined mask which ensures the features from image 1 are covered up and features
+    # for image 2 are visible.
     combined_mask = np.max([get_face_mask(img1, landmarks1), warped_mask], 0)
 
     warped_img2 = warp_img(img2, M, img1.shape)

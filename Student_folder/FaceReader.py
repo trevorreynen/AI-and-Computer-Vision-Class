@@ -87,6 +87,8 @@ def bottom_lip(landmarks):
     return int(bottom_lip_mean[:, 1])
 
 
+# ==========<  Code above was given (I formatted), code below was from lab video.  >==========
+
 # Return image_with_landmarks and distance between top_lip and bottom_lip.
 def mouth_open(image):
     landmarks = get_landmarks(image)

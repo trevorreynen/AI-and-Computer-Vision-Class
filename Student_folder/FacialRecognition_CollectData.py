@@ -40,7 +40,7 @@ def face_extractor(img):
 count = 0
 cap = cv2.VideoCapture(0)
 
-while cap.isOpened():
+while True:
     ret, frame = cap.read()
 
     if face_extractor(frame) is not None:
