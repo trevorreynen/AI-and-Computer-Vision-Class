@@ -4,14 +4,15 @@
 # Thu. 06/09/2022
 # Trevor Reynen
 
-# Detect cars from Cars.avi in Clips folder.
+# Detect cars from Cars.avi in images folder.
 # Draw a rectangle around each car and show how many cars are actively in each frame.
 
-# Imports.
-import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
-import numpy as np  # NumPy is an important library used for numerical computing.
 
-# Create our body classifier, car_slassifier.
+# Imports.
+import cv2
+
+
+# Create our body classifier, car_classifier.
 car_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_car.xml')
 
 # Initiate video capture for video file.

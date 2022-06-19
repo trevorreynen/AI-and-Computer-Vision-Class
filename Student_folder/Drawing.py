@@ -6,9 +6,10 @@
 
 # Draw the picture using pencil effects.
 
+
 # Imports.
-import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
-import numpy as np  # NumPy is an important library used for numerical computing.
+import cv2
+
 
 # Initialize camera.
 cap = cv2.VideoCapture(0)
@@ -18,7 +19,7 @@ def sketch(image):
     # Convert image to grayscale. Gaussian Blur needs a gray image.
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-    # Smooth image by removing the noise using Guassian Blur.
+    # Smooth image by removing the noise using Gaussian Blur.
     img_gray_blur = cv2.GaussianBlur(image_gray, (5, 5), 0)
 
     # Extract edges using Canny.

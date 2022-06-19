@@ -6,9 +6,10 @@
 
 # Locate pedestrians in an video/image.
 
+
 # Imports.
-import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
-import numpy as np  # NumPy is an important library used for numerical computing.
+import cv2
+
 
 # Create body_classifier to detect pedestrians.
 body_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_fullbody.xml')

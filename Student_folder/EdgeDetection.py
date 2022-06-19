@@ -6,9 +6,10 @@
 
 # Demonstrates how to use .Canny() for edge detection.
 
+
 # Imports.
-import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
-import numpy as np  # NumPy is an important library used for numerical computing.
+import cv2
+
 
 #image = cv2.imread('./images/input.jpg', 0)
 image = cv2.imread('./images/ManyFaces.jpg', 0)

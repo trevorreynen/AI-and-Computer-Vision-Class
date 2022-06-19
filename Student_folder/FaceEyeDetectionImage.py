@@ -6,13 +6,14 @@
 
 # Face & Eye Detection using HAAR Cascade classifiers.
 
+
 # Imports.
-import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
-import numpy as np  # NumPy is an important library used for numerical computing.
+import cv2
+
 
 # Search classifier opencv/data/haarcascades/.
 
-# Casscade Classifiers Flow.
+# Cascade Classifiers Flow.
 # 1. Load Classifier.
 # 2. Pass Image to Classifier/Detector.
 # 3. Get Location/ROI (Region of Interest) for Detected Objects.
@@ -45,11 +46,11 @@ print()
 if faces == ():
     print('No faces found.')
 
-# Shows the original importanted image before detections.
+# Shows the original imported image before detections.
 #cv2.imshow('Original', image)
 
 # We iterate through our faces array and draw a rectangle over each face in faces.
-# x, y => upperleft corner coordinates of face.
+# x, y => upper-left corner coordinates of face.
 # width(w) of rectangle in the face.
 # height(h) of rectangle in the face.
 # grey means the input image to the detector.

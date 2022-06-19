@@ -6,9 +6,10 @@
 
 # Let's make a live face and eye detection, keeping the face in view at all times.
 
+
 # Imports.
-import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
-import numpy as np  # NumPy is an important library used for numerical computing.
+import cv2
+
 
 # Create face_classifier object.
 face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_default.xml')

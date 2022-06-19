@@ -6,15 +6,15 @@
 
 # Align other peoples face onto your face through webcam and image.
 
+
 # Imports.
-import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
-import dlib         # dlib is a toolkit for making machine learning and data analysis applications.
-import numpy as np  # NumPy is an important library used for numerical computing.
-import sys          # sys is used to manipulate different parts of the Python runtime environment.
-import os           # os provides functions for interacting with the operating system.
+import cv2
+import dlib
+import numpy as np
+import os
 
 
-# The pretrained model that predicts the rectangles that correspond to facial features of a face.
+# The pre-trained model that predicts the rectangles that correspond to facial features of a face.
 PREDICTOR_PATH = './images/shape_predictor_68_face_landmarks.dat'
 SCALE_FACTOR = 1
 FEATHER_AMOUNT = 11
@@ -38,8 +38,8 @@ OVERLAY_POINTS = [
     NOSE_POINTS + MOUTH_POINTS
 ]
 
-# Amount of blur to use during colour correction, as a fraction of the pupillary distance.
-COLOUR_CORRECT_BLUR_FRAC = 0.6
+# Amount of blur to use during color correction, as a fraction of the pupillary distance.
+COLOR_CORRECT_BLUR_FRAC = 0.6
 cascade_path = './Haarcascades/haarcascade_frontalface_default.xml'
 cascade = cv2.CascadeClassifier(cascade_path)
 detector = dlib.get_frontal_face_detector()
@@ -151,8 +151,8 @@ def warp_img(img, M, dshape):
     return output_img
 
 
-def correct_colours(img1, img2, landmarks1):
-    blur_amount = COLOUR_CORRECT_BLUR_FRAC * np.linalg.norm(np.mean(landmarks1[LEFT_EYE_POINTS], axis=0) - np.mean(landmarks1[RIGHT_EYE_POINTS], axis=0))
+def correct_colors(img1, img2, landmarks1):
+    blur_amount = COLOR_CORRECT_BLUR_FRAC * np.linalg.norm(np.mean(landmarks1[LEFT_EYE_POINTS], axis=0) - np.mean(landmarks1[RIGHT_EYE_POINTS], axis=0))
     blur_amount = int(blur_amount)
 
     if blur_amount % 2 == 0:
@@ -185,7 +185,7 @@ def virtual_face(img, name):
 
     warped_img2 = warp_img(img2, M, img1.shape)
 
-    warped_corrected_img2 = correct_colours(img1, warped_img2, landmarks1)
+    warped_corrected_img2 = correct_colors(img1, warped_img2, landmarks1)
 
     # Apply mask to produce final image.
     output_img = img1 * (1.0 - combined_mask) + warped_corrected_img2 * combined_mask
@@ -218,7 +218,7 @@ def uniqueFile(file):
 
 
 # dlibOn controls if use dlib's facial landmark detector (better) or use HAAR Cascade Classifiers
-# (faster). Our base image is taken from webcam. Alight filter_imgage onto the webcam image.
+# (faster). Our base image is taken from webcam. Align filter_image onto the webcam image.
 
 filter_image = './images/single-face2.jpg'
 
@@ -227,7 +227,7 @@ dlibOn = False
 while True:
     ret, frame = cap.read()
 
-    # Reduce image size by 75% to reduce processing time and improve framerates.
+    # Reduce image size by 75% to reduce processing time and improve frame rate.
     frame = cv2.resize(frame, None, fx=0.75, fy=0.75, interpolation=cv2.INTER_LINEAR)
 
     # Flip image so that it's more mirror like.

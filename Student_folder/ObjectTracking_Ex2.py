@@ -6,12 +6,11 @@
 
 # Dense Optical Flow in OpenCV.
 
+
 # Imports.
-import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
-import dlib         # dlib is a toolkit for making machine learning and data analysis applications.
-import numpy as np  # NumPy is an important library used for numerical computing.
-import sys          # sys is used to manipulate different parts of the Python runtime environment.
-import os           # os provides functions for interacting with the operating system.
+import cv2
+import numpy as np
+
 
 # Load video.
 cap = cv2.VideoCapture('./images/walking.avi')
@@ -42,7 +41,8 @@ while cap.isOpened():
     # Use flow to calculate the magnitude (speed) and angle of motion.
     magnitude, angle = cv2.cartToPolar(flow[..., 0], flow[..., 1])
 
-    # Colors are used to reflect movement with Hue being direction and Value (brightness/intensity) being speed.
+    # Colors are used to reflect movement with Hue being direction and Value (brightness/intensity)
+    # being speed.
     hsv[..., 0] = angle * (180 / (np.pi / 2))
     hsv[..., 2] = cv2.normalize(magnitude, None, 0, 255, cv2.NORM_MINMAX)
 

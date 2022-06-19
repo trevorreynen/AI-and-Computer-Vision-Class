@@ -6,15 +6,15 @@
 
 # Align other peoples face onto your face through images.
 
+
 # Imports.
-import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
-import dlib         # dlib is a toolkit for making machine learning and data analysis applications.
-import numpy as np  # NumPy is an important library used for numerical computing.
-import sys          # sys is used to manipulate different parts of the Python runtime environment.
-import os           # os provides functions for interacting with the operating system.
+import cv2
+import dlib
+import numpy as np
+import os
 
 
-# The pretrained model that predicts the rectangles that correspond to facial features of a face.
+# The pre-trained model that predicts the rectangles that correspond to facial features of a face.
 PREDICTOR_PATH = './images/shape_predictor_68_face_landmarks.dat'
 SCALE_FACTOR = 1
 FEATHER_AMOUNT = 11
@@ -35,7 +35,7 @@ ALIGN_POINTS = (LEFT_BROW_POINTS + RIGHT_EYE_POINTS + LEFT_EYE_POINTS + RIGHT_BR
 # be overlaid.
 OVERLAY_POINTS = [LEFT_EYE_POINTS + RIGHT_EYE_POINTS + LEFT_BROW_POINTS + RIGHT_BROW_POINTS, NOSE_POINTS + MOUTH_POINTS]
 
-# Amount of blur to use during colour correction, as a fraction of the pupillary distance.
+# Amount of blur to use during color correction, as a fraction of the pupillary distance.
 COLOR_CORRECT_BLUR_FRAC = 0.6
 
 detector = dlib.get_frontal_face_detector()

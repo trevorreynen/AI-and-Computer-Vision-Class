@@ -2,13 +2,13 @@
 
 This is a collection of all labs and homework done in my CSCI-509 - AI & Computer Vision class. I do not claim to own any of the images/videos/etc. being used as examples for educational purposes and testing.
 
-**Everything in this README file will be directed at a Windows 10/11 environment. I will not be showing linux commands necessary to get this working.**
+**Everything in this README file will be directed at a Windows 10/11 environment. I will not be showing Linux commands necessary to get this working.**
 
-NOTE: Some applications installed or some steps taken might not be needed. But I don't remember specifically what I did on Windows 10/11 to setup my environment for AI, even though I have done it multiple times as I factory reset my PC and laptop every few months. I will update this README in the future then next time I factory reset my PC or laptop to reflect the proper steps I go through.
+NOTE: Some applications installed or some steps taken might not be needed. But I don't remember specifically what I did on Windows 10/11 to set up my environment for AI, even though I have done it multiple times as I factory reset my PC and laptop every few months. I will update this README in the future then next time I factory reset my PC or laptop to reflect the proper steps I go through.
 
 ---
 
-# Required Project Tools
+## Required Project Tools
 
 - [Visual Studio Code](https://code.visualstudio.com/)
    - Not needed but highly recommended. This should be the only editor anyone ever uses. Better than PyCharm, IntelliJ, Atom, etc. by a million miles (at least for my uses so far in life).
@@ -19,11 +19,11 @@ NOTE: Some applications installed or some steps taken might not be needed. But I
    - Might not be needed.
 - [MSYS2](https://www.msys2.org/)
    - Might not be needed.
-   - Be sure to follow the given installation steps on that site.
+   - Be sure to follow the given install steps on that site.
 
 ---
 
-# Environment Setup
+## Environment Setup
 
 The instructions below are directly from my teacher. I will change/update if or when necessary.
 
@@ -41,7 +41,7 @@ The instructions below are directly from my teacher. I will change/update if or 
 
 ---
 
-# Working with the Project and Running Code
+## Working with the Project and Running Code
 
 - Open Command Prompt and navigate to /AI-and-Computer-Vision-Class/Student_folder/.
    - For me, the command is:  **cd "C:/GitHub/AI-and-Computer-Vision-Class/Student_folder"**

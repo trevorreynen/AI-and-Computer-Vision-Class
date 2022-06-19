@@ -6,12 +6,10 @@
 
 # Train Model
 
+
 # Imports.
-import cv2          # OpenCV is a library that has several hundreds of computer vision algorithms.
-import dlib         # dlib is a toolkit for making machine learning and data analysis applications.
-import numpy as np  # NumPy is an important library used for numerical computing.
-import sys          # sys is used to manipulate different parts of the Python runtime environment.
-import time
+import cv2
+import numpy as np
 from os import listdir
 from os.path import isfile, join
 
@@ -20,7 +18,7 @@ from os.path import isfile, join
 data_path = './faces/user/'
 
 # Store the list of file names in the directory.
-onlyfiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
+onlyFiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
 
 # Extract faces from webcam view.
 def face_detector(img, size=0.5):
@@ -41,7 +39,7 @@ def face_detector(img, size=0.5):
 
     return img, roi
 
-# Test our facial recognition classfier.
+# Test our facial recognition classifier.
 face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_default.xml')
 
 
@@ -49,9 +47,9 @@ face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_
 
 Training_Data, Labels = [], []
 
-# Open training image in our datapath. Build a numpy array for training data.
-for i, files in enumerate(onlyfiles):
-    image_path = data_path + onlyfiles[i]
+# Open training image in our data path. Build a numpy array for training data.
+for i, files in enumerate(onlyFiles):
+    image_path = data_path + onlyFiles[i]
 
     # Reading each image in the path.
     images = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
