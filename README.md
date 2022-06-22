@@ -2,9 +2,9 @@
 
 This is a collection of all labs and homework done in my CSCI-509 - AI & Computer Vision class. I do not claim to own any of the images/videos/etc. being used as examples for educational purposes and testing.
 
-**Everything in this README file will be directed at a Windows 10/11 environment. I will not be showing Linux commands necessary to get this working.**
+**Everything in this README file will be directed at a Windows 10/11 environment.**
 
-NOTE: Some applications installed or some steps taken might not be needed. But I don't remember specifically what I did on Windows 10/11 to set up my environment for AI, even though I have done it multiple times as I factory reset my PC and laptop every few months. I will update this README in the future then next time I factory reset my PC or laptop to reflect the proper steps I go through.
+NOTE: Some applications installed or some steps taken might not be needed. I don't remember specifically what I did on Windows 10/11 to set up my environment for AI, even though I have done it multiple times as I factory reset my PC and laptop every few months. I will update this README in the future then next time I factory reset my PC/laptop to reflect the proper steps I go through.
 
 ---
 
@@ -13,7 +13,7 @@ NOTE: Some applications installed or some steps taken might not be needed. But I
 - [Visual Studio Code](https://code.visualstudio.com/)
    - Not needed but highly recommended. This should be the only editor anyone ever uses. Better than PyCharm, IntelliJ, Atom, etc. by a million miles (at least for my uses so far in life).
 - [Anaconda3](https://www.anaconda.com/)
-   - Definitely needed.
+   - Required.
    - Be sure to select "Add Anaconda3 to the system PATH environment variable" when installing. This is extremely useful.
 - [CMake](https://cmake.org/download/)
    - Might not be needed.
@@ -34,10 +34,10 @@ The instructions below are directly from my teacher. I will change/update if or 
    - pip install --upgrade pip
    - pip install opencv-contrib-python==4.0.1.24 numpy==1.19.5 pyyaml matplotlib pillow imageio tqdm six imutils
    - pip install https://pypi.python.org/packages/da/06/bd3e241c4eb0a662914b3b4875fc52dd176a9db0d4a2c915ac2ad8800e9e/dlib-19.7.0-cp36-cp36m-win_amd64.whl#md5=b7330a5b2d46420343fbed5df69e6a3f
-   - pip install tensorflow==1.12.0
-   - pip install keras==2.2.4 --no-deps
       - For me, just doing "pip install dlib" did not work. The only way to install dlib is to run the command with the link above.
-   - conda deactive
+   - pip install tensorflow==1.12.0
+   - pip install keras==2.2.5
+   - conda deactivate
 
 ---
 
