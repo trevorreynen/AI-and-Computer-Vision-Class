@@ -11,7 +11,7 @@ import numpy as np
 
 
 # image = cv2.imread('./images/scene1.jpg')
-image = cv2.imread('./images/single-face1.jpg')
+image = cv2.imread('./assets/images/single-face1.jpg')
 
 a = 1
 

@@ -13,10 +13,10 @@ import cv2
 
 
 # Create our body classifier, car_classifier.
-car_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_car.xml')
+car_classifier = cv2.CascadeClassifier('./assets/Haarcascades/haarcascade_car.xml')
 
 # Initiate video capture for video file.
-cap = cv2.VideoCapture('./images/cars.avi')
+cap = cv2.VideoCapture('./assets/images/cars.avi')
 
 # Loop once video is successfully loaded.
 while cap.isOpened():

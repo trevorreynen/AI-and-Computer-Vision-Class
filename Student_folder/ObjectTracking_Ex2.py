@@ -13,8 +13,8 @@ import numpy as np
 
 
 # Load video.
-cap = cv2.VideoCapture('./images/walking.avi')
-# cap = cv2.VideoCapture('./images/cars.avi')
+cap = cv2.VideoCapture('./assets/images/walking.avi')
+# cap = cv2.VideoCapture('./assets/images/cars.avi')
 
 # Get first frame.
 ret, first_frame = cap.read()

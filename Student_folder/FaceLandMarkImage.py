@@ -26,7 +26,7 @@ import os
 # JAW_POINTS = 0 to 17
 
 # Name of our model file.
-PREDICTOR_PATH = './images/shape_predictor_68_face_landmarks.dat'
+PREDICTOR_PATH = './assets/images/shape_predictor_68_face_landmarks.dat'
 
 # Load the file to create predictor objects for generating landmarks.
 # Shape-predictor takes the path to dlib's pre-trained facial landmark detector.
@@ -90,9 +90,9 @@ def annotate_landmarks(image, landmarks):
     return image
 
 
-image = cv2.imread('./images/single-face1.jpg')
-#image = cv2.imread('./images/single-face2.jpg')
-#image = cv2.imread('./images/Trump.jpg')
+image = cv2.imread('./assets/images/single-face1.jpg')
+#image = cv2.imread('./assets/images/single-face2.jpg')
+#image = cv2.imread('./assets/images/Trump.jpg')
 
 cv2.imshow('Original', image)
 
@@ -121,7 +121,7 @@ def uniqueFile(file):
 
 
 # Store the resulting image into the hard drive.
-cv2.imwrite(uniqueFile('./images/saved/FaceLandMarkImage.jpg'), image_with_landmarks)
+cv2.imwrite(uniqueFile('./assets/images/saved/FaceLandMarkImage.jpg'), image_with_landmarks)
 cv2.waitKey(20000)
 
 cv2.destroyAllWindows()

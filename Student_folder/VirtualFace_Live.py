@@ -15,7 +15,7 @@ import os
 
 
 # The pre-trained model that predicts the rectangles that correspond to facial features of a face.
-PREDICTOR_PATH = './images/shape_predictor_68_face_landmarks.dat'
+PREDICTOR_PATH = './assets/images/shape_predictor_68_face_landmarks.dat'
 SCALE_FACTOR = 1
 FEATHER_AMOUNT = 11
 
@@ -29,7 +29,12 @@ NOSE_POINTS = list(range(27, 35))
 JAW_POINTS = list(range(0, 17))
 
 # Points used to line up the images.
-ALIGN_POINTS = (LEFT_BROW_POINTS + RIGHT_EYE_POINTS + LEFT_EYE_POINTS + RIGHT_BROW_POINTS + NOSE_POINTS + MOUTH_POINTS)
+ALIGN_POINTS = (LEFT_BROW_POINTS +
+                RIGHT_EYE_POINTS +
+                LEFT_EYE_POINTS +
+                RIGHT_BROW_POINTS +
+                NOSE_POINTS +
+                MOUTH_POINTS)
 
 # Points from the second image to overlay on the first. The convex hull of each element will
 # be overlaid.
@@ -40,7 +45,7 @@ OVERLAY_POINTS = [
 
 # Amount of blur to use during color correction, as a fraction of the pupillary distance.
 COLOR_CORRECT_BLUR_FRAC = 0.6
-cascade_path = './Haarcascades/haarcascade_frontalface_default.xml'
+cascade_path = './assets/Haarcascades/haarcascade_frontalface_default.xml'
 cascade = cv2.CascadeClassifier(cascade_path)
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(PREDICTOR_PATH)
@@ -146,13 +151,20 @@ def read_img_and_landmarks(fname):
 
 def warp_img(img, M, dshape):
     output_img = np.zeros(dshape, dtype=img.dtype)
-    cv2.warpAffine(img, M[:2], (dshape[1], dshape[0]), dst=output_img, borderMode=cv2.BORDER_TRANSPARENT, flags=cv2.WARP_INVERSE_MAP)
+    cv2.warpAffine(img,
+                   M[:2],
+                   (dshape[1], dshape[0]),
+                   dst=output_img,
+                   borderMode=cv2.BORDER_TRANSPARENT,
+                   flags=cv2.WARP_INVERSE_MAP)
 
     return output_img
 
 
 def correct_colors(img1, img2, landmarks1):
-    blur_amount = COLOR_CORRECT_BLUR_FRAC * np.linalg.norm(np.mean(landmarks1[LEFT_EYE_POINTS], axis=0) - np.mean(landmarks1[RIGHT_EYE_POINTS], axis=0))
+    blur_amount = (COLOR_CORRECT_BLUR_FRAC *
+                   np.linalg.norm(np.mean(landmarks1[LEFT_EYE_POINTS], axis=0) -
+                                  np.mean(landmarks1[RIGHT_EYE_POINTS], axis=0)))
     blur_amount = int(blur_amount)
 
     if blur_amount % 2 == 0:
@@ -192,7 +204,7 @@ def virtual_face(img, name):
 
     # output_img is no longer in the expected OpenCV format so we use openCV to write the image to
     # hard disk and then reload it.
-    fileName = cv2.imwrite(uniqueFile('./images/saved/VirtualFaceLive.jpg'), output_img)
+    fileName = cv2.imwrite(uniqueFile('./assets/images/saved/VirtualFaceLive.jpg'), output_img)
     image = cv2.imread(fileName)
 
     frame = cv2.resize(image, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_LINEAR)
@@ -220,7 +232,7 @@ def uniqueFile(file):
 # dlibOn controls if use dlib's facial landmark detector (better) or use HAAR Cascade Classifiers
 # (faster). Our base image is taken from webcam. Align filter_image onto the webcam image.
 
-filter_image = './images/single-face2.jpg'
+filter_image = './assets/images/single-face2.jpg'
 
 dlibOn = False
 

@@ -12,10 +12,10 @@ import cv2
 
 
 # Create face_classifier object.
-face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_default.xml')
+face_classifier = cv2.CascadeClassifier('./assets/Haarcascades/haarcascade_frontalface_default.xml')
 
 # Create eye_classifier object.
-eye_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_eye.xml')
+eye_classifier = cv2.CascadeClassifier('./assets/Haarcascades/haarcascade_eye.xml')
 
 
 # The function will detect both the faces and eyes given in the image.

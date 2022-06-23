@@ -15,7 +15,7 @@ from os.path import isfile, join
 
 
 # Get the training data we previously made.
-data_path = './faces/user/'
+data_path = './assets/images/faces/user/'
 
 # Store the list of file names in the directory.
 onlyFiles = [f for f in listdir(data_path) if isfile(join(data_path, f))]
@@ -40,7 +40,7 @@ def face_detector(img, size=0.5):
     return img, roi
 
 # Test our facial recognition classifier.
-face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_default.xml')
+face_classifier = cv2.CascadeClassifier('./assets/Haarcascades/haarcascade_frontalface_default.xml')
 
 
 # ==========<  Code above was given (I formatted), code below was from lab video.  >==========

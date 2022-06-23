@@ -15,7 +15,7 @@ import numpy as np
 # As soon as we detect the large separation between our upper and lower lips in our mouth
 # landmarks, we count once for yawning
 
-PREDICTOR_PATH = './images/shape_predictor_68_face_landmarks.dat'
+PREDICTOR_PATH = './assets/images/shape_predictor_68_face_landmarks.dat'
 predictor = dlib.shape_predictor(PREDICTOR_PATH)
 detector = dlib.get_frontal_face_detector()
 print(type(detector))

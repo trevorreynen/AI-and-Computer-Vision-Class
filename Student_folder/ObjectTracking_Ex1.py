@@ -17,8 +17,8 @@ import numpy as np
 # details of parameter.
 
 # Load video.
-cap = cv2.VideoCapture('./images/walking.avi')
-#cap = cv2.VideoCapture('./images/cars.avi')
+cap = cv2.VideoCapture('./assets/images/walking.avi')
+#cap = cv2.VideoCapture('./assets/images/cars.avi')
 
 # OpenCV has a function, cv2.goodFeaturesToTrack().
 # It finds N strongest corners in the image by Shi-Tomasi method (or Harris Corner Detection, if
@@ -28,7 +28,9 @@ cap = cv2.VideoCapture('./images/walking.avi')
 feature_params = dict(maxCorners=100, qualityLevel=0.3, minDistance=7, blockSize=7)
 
 # Set parameters for Lucas-Kanade Optical Flow.
-lucas_kanade_params = dict(winSize=(15, 15), maxLevel=2, criteria=(cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 10, 0.03))
+lucas_kanade_params = dict(winSize=(15, 15),
+                           maxLevel=2,
+                           criteria=(cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 10, 0.03))
 
 
 # ==========<  Code above was given (I formatted), code below was from lab video.  >==========
@@ -64,7 +66,11 @@ while 1:
     # which has a value of 1 if next point is found, else zero.
 
     # We iteratively pass these next points as previous points in next step.
-    new_corners, status, errors = cv2.calcOpticalFlowPyrLK(prev_gray, frame_gray, prev_corners, None, **lucas_kanade_params)
+    new_corners, status, errors = cv2.calcOpticalFlowPyrLK(prev_gray,
+                                                           frame_gray,
+                                                           prev_corners,
+                                                           None,
+                                                           **lucas_kanade_params)
 
     # Select and store good points.
     good_new = new_corners[status == 1]

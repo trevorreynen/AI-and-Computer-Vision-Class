@@ -23,16 +23,16 @@ import cv2
 # These pre-trained classifiers are stored as .xml files.
 
 # Create face_classifier object.
-face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_default.xml')
+face_classifier = cv2.CascadeClassifier('./assets/Haarcascades/haarcascade_frontalface_default.xml')
 
 # Create eye_classifier object.
-eye_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_eye.xml')
+eye_classifier = cv2.CascadeClassifier('./assets/Haarcascades/haarcascade_eye.xml')
 
 # Load our image and convert it into grayscale.
-image = cv2.imread('./images/ManyFaces.jpg')
-#image = cv2.imread('./images/ManyFaces2.jpg')
-#image = cv2.imread('./images/ManyFaces3.jpg')
-#image = cv2.imread('./images/candy.jpg')
+image = cv2.imread('./assets/images/ManyFaces.jpg')
+#image = cv2.imread('./assets/images/ManyFaces2.jpg')
+#image = cv2.imread('./assets/images/ManyFaces3.jpg')
+#image = cv2.imread('./assets/images/candy.jpg')
 
 gray_img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
@@ -67,7 +67,6 @@ for (x, y, w, h) in faces:
 
     print('List for location for eyes')
     print(eyes)
-    print()
 
     for (ex, ey, ew, eh) in eyes:
         # Draw the rectangle around eyes.

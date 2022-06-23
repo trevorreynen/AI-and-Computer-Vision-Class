@@ -29,10 +29,10 @@ from keras.utils import np_utils
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
 # Shape of x_train (60000, 28, 28).
-# Shape of y_train(60000,).
+# Shape of y_train (60000,).
 # Our image dimensions are 28 x 28, with no color channels.
-print('Shape of x_train', x_train.shape)
-print('Shape of y_train', y_train.shape)
+print('Shape of x_train:', x_train.shape)
+print('Shape of y_train:', y_train.shape)
 
 # Let us take a look at some of images in this dataset. Use OpenCV to display 6 random images
 # from dataset.
@@ -49,8 +49,8 @@ cv2.destroyAllWindows()
 # Lets store the number of rows and columns.
 img_rows = x_train.shape[1]
 img_cols = x_train.shape[2]
-print('img_rows: ', img_rows)
-print('img_cols: ', img_cols)
+print('img_rows:', img_rows)
+print('img_cols:', img_cols)
 
 # Prepare our dataset for training.
 # Keras require the data format: Number of Samples, Rows, Cols, Depth.
@@ -116,7 +116,12 @@ epochs = 10
 
 # We place our formatted data as the inputs and set the batch size, number of epochs.
 # We store our model's training results for plotting in future.
-history = model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, verbose=1, validation_data=(x_test, y_test))
+history = model.fit(x_train,
+                    y_train,
+                    batch_size=batch_size,
+                    epochs=epochs,
+                    verbose=1,
+                    validation_data=(x_test, y_test))
 
 # We then use Keras' model.evaluate function to output the model's final performance.
 score = model.evaluate(x_test, y_test, verbose=0)
@@ -126,7 +131,7 @@ print('Test Loss:', score[0])
 print('Test Accuracy:', score[1])
 
 # Save the model.
-model.save('./models/mnist_simple_cnn.h5')
+model.save('./assets/models/mnist_simple_cnn.h5')
 print('Model Saved')
 
 

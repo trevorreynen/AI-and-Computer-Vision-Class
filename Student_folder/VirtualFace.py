@@ -15,7 +15,7 @@ import os
 
 
 # The pre-trained model that predicts the rectangles that correspond to facial features of a face.
-PREDICTOR_PATH = './images/shape_predictor_68_face_landmarks.dat'
+PREDICTOR_PATH = './assets/images/shape_predictor_68_face_landmarks.dat'
 SCALE_FACTOR = 1
 FEATHER_AMOUNT = 11
 
@@ -29,11 +29,19 @@ NOSE_POINTS = list(range(27, 35))
 JAW_POINTS = list(range(0, 17))
 
 # Points used to line up the images.
-ALIGN_POINTS = (LEFT_BROW_POINTS + RIGHT_EYE_POINTS + LEFT_EYE_POINTS + RIGHT_BROW_POINTS + NOSE_POINTS + MOUTH_POINTS)
+ALIGN_POINTS = (LEFT_BROW_POINTS +
+                RIGHT_EYE_POINTS +
+                LEFT_EYE_POINTS +
+                RIGHT_BROW_POINTS +
+                NOSE_POINTS +
+                MOUTH_POINTS)
 
 # Points from the second image to overlay on the first. The convex hull of each element will
 # be overlaid.
-OVERLAY_POINTS = [LEFT_EYE_POINTS + RIGHT_EYE_POINTS + LEFT_BROW_POINTS + RIGHT_BROW_POINTS, NOSE_POINTS + MOUTH_POINTS]
+OVERLAY_POINTS = [
+    LEFT_EYE_POINTS + RIGHT_EYE_POINTS + LEFT_BROW_POINTS + RIGHT_BROW_POINTS,
+    NOSE_POINTS + MOUTH_POINTS
+]
 
 # Amount of blur to use during color correction, as a fraction of the pupillary distance.
 COLOR_CORRECT_BLUR_FRAC = 0.6
@@ -135,13 +143,20 @@ def read_img_and_landmarks(image):
 
 def warp_img(img, M, dshape):
     output_img = np.zeros(dshape, dtype=img.dtype)
-    cv2.warpAffine(img, M[:2], (dshape[1], dshape[0]), dst=output_img, borderMode=cv2.BORDER_TRANSPARENT, flags=cv2.WARP_INVERSE_MAP)
+    cv2.warpAffine(img,
+                   M[:2],
+                   (dshape[1], dshape[0]),
+                   dst=output_img,
+                   borderMode=cv2.BORDER_TRANSPARENT,
+                   flags=cv2.WARP_INVERSE_MAP)
 
     return output_img
 
 
 def correct_colors(img1, img2, landmarks1):
-    blur_amount = COLOR_CORRECT_BLUR_FRAC * np.linalg.norm(np.mean(landmarks1[LEFT_EYE_POINTS], 0) - np.mean(landmarks1[RIGHT_EYE_POINTS], 0))
+    blur_amount = (COLOR_CORRECT_BLUR_FRAC *
+                   np.linalg.norm(np.mean(landmarks1[LEFT_EYE_POINTS], 0) -
+                                  np.mean(landmarks1[RIGHT_EYE_POINTS], 0)))
     blur_amount = int(blur_amount)
 
     if blur_amount % 2 == 0:
@@ -198,7 +213,7 @@ def virtualFace(image1, image2):
     # Apply mask to produce final image.
     output_img = img1 * (1.0 - combined_mask) + warped_corrected_img2 * combined_mask
 
-    cv2.imwrite(uniqueFile('./images/saved/VirtualFace.jpg'), output_img)
+    cv2.imwrite(uniqueFile('./assets/images/saved/VirtualFace.jpg'), output_img)
 
 
 def uniqueFile(file):
@@ -214,9 +229,9 @@ def uniqueFile(file):
 
 
 # Enter path of your input image here.
-image1 = cv2.imread('./images/Hillary.jpg')
-image2 = cv2.imread('./images/Trump.jpg')
-image3 = cv2.imread('./images/Trev.jpg')
+image1 = cv2.imread('./assets/images/Hillary.jpg')
+image2 = cv2.imread('./assets/images/Trump.jpg')
+image3 = cv2.imread('./assets/images/Trev.jpg')
 
 virtualFace(image1, image2) # Hillary & Trump
 virtualFace(image2, image1) # Trump & Hillary

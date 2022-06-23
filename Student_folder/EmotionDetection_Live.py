@@ -5,7 +5,8 @@
 # Trevor Reynen
 
 # We will use deep learning models built in previous lectures to detect live emotion.
-# You need ./models/trained/emotion_little_vgg_3.h5, which is produced by EmotionDetectionTrain.py
+# You need ./assets/models/trained/emotion_little_vgg_3.h5, which is produced by
+# EmotionDetectionTrain.py
 
 
 # Imports.
@@ -18,10 +19,10 @@ from keras.preprocessing.image import ImageDataGenerator, img_to_array
 
 
 # Loading our saved model.
-classifier = load_model('./models/trained/emotion_little_vgg_3.h5')
+classifier = load_model('./assets/models/trained/emotion_little_vgg_3.h5')
 
 # Haarcascades is the type of object detector ( we will use face detection capability).
-face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_default.xml')
+face_classifier = cv2.CascadeClassifier('./assets/Haarcascades/haarcascade_frontalface_default.xml')
 
 # This func returns rectangles of face locations, the cropped image of face, and complete image.
 def face_detector(img):
@@ -54,7 +55,7 @@ def face_detector(img):
 
 # Get our class labels.
 validation_datagen = ImageDataGenerator(rescale=1. / 255)
-validation_data_dir = './fer2013/validation'
+validation_data_dir = './assets/fer2013/validation'
 
 num_classes = 6
 img_rows, img_cols = 48, 48

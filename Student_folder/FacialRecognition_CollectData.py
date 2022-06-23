@@ -5,8 +5,6 @@
 # Trevor Reynen
 
 # This program will collect your face for training.
-# Need to create './faces/user/' directory (just the folders).
-
 # Build the app to recognize your face only.
 
 
@@ -15,7 +13,7 @@ import cv2
 
 
 # Load HAAR face classifier.
-face_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_frontalface_default.xml')
+face_classifier = cv2.CascadeClassifier('./assets/Haarcascades/haarcascade_frontalface_default.xml')
 
 
 # This function will return our cropped face.
@@ -49,7 +47,7 @@ while True:
         face = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
 
         # Save file in specified directory with unique name.
-        file_name_path = './faces/user/' + str(count) + '.jpg'
+        file_name_path = './assets/images/faces/user/' + str(count) + '.jpg'
         cv2.imwrite(file_name_path, face)
 
         # Put count on images and display live count.

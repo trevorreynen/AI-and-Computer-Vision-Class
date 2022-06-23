@@ -6,14 +6,7 @@
 
 # We will detect six emotions including Angry, Fear, Happy, Neutral, Sad, Surprised.
 
-# NOTE: We were told to delete the "Disgust" folder from both ./fer2013/train/
-# and ./fer2013/validation/. According to my teacher, those "Disgust" folders have less samples to
-# train the model with. So, it will unbalance the trained model and possibly cause problems.
-# Those Disgust files were moved to ./unused-assets/fer2013/...
-
 # Using LittleVGG for Emotion Detection.
-# In the fer2013 dataset folder, we have train and validation folder. In both folders, we will
-# delete disgust directory, which only has 400 samples.
 
 
 # Keras Imports
@@ -95,8 +88,8 @@ model.add(Activation('softmax'))
 
 print(model.summary())
 
-train_data_dir = './fer2013/train'
-validation_data_dir = './fer2013/validation'
+train_data_dir = './assets/fer2013/train'
+validation_data_dir = './assets/fer2013/validation'
 
 
 # ==========<  Code above was given (I formatted), code below was from lab video.  >==========
@@ -128,7 +121,7 @@ validation_generator = validation_datagen.flow_from_directory(validation_data_di
                                                               shuffle=True)
 
 # Save the model after every epoch.
-checkpoint = ModelCheckpoint('./models/trained/emotion_little_vgg_3.h5',
+checkpoint = ModelCheckpoint('./assets/models/trained/emotion_little_vgg_3.h5',
                              monitor='val_loss',
                              verbose=1,
                              save_best_only=True,
@@ -166,8 +159,4 @@ history = model.fit_generator(train_generator,
                               callbacks=callbacks,
                               validation_data=validation_generator,
                               validation_steps=nb_validation_samples//batch_size)
-
-
-# Homework:
-# Produce /models/trained/emotion_little_vgg_3.h5 model.
 

@@ -11,9 +11,9 @@
 import cv2
 
 
-#image = cv2.imread('./images/input.jpg', 0)
-image = cv2.imread('./images/ManyFaces.jpg', 0)
-#image = cv2.imread('./images/elephant.jpg', 0)
+#image = cv2.imread('./assets/images/input.jpg', 0)
+image = cv2.imread('./assets/images/ManyFaces.jpg', 0)
+#image = cv2.imread('./assets/images/elephant.jpg', 0)
 
 while True:
     cv2.imshow('Original Image', image)

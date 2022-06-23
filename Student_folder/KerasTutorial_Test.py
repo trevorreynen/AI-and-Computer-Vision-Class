@@ -17,7 +17,7 @@ from keras.models import load_model
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
-classifier = load_model('./models/mnist_simple_cnn.h5')
+classifier = load_model('./assets/models/mnist_simple_cnn.h5')
 
 # pred is the prediction results of image. input_img is the input image.
 def draw_test(name, pred, input_img):

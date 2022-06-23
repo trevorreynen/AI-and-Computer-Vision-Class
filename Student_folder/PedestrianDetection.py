@@ -12,11 +12,11 @@ import cv2
 
 
 # Create body_classifier to detect pedestrians.
-body_classifier = cv2.CascadeClassifier('./Haarcascades/haarcascade_fullbody.xml')
+body_classifier = cv2.CascadeClassifier('./assets/Haarcascades/haarcascade_fullbody.xml')
 
 # Initiate video capture for video file.
-cap = cv2.VideoCapture('./images/walking.avi')
-#cap = cv2.VideoCapture('./images/P1033741.mp4')
+cap = cv2.VideoCapture('./assets/images/walking.avi')
+#cap = cv2.VideoCapture('./assets/images/P1033741.mp4')
 
 # Loop once video has successfully loaded.
 while cap.isOpened():
