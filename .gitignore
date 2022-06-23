@@ -2,3 +2,6 @@ old_files/
 class_resources/
 .vscode/
 Student_folder/assets/images/faces/
+Student_folder/__pycache__/
+Student_folder/assets/models/pretrained/weights.28-3.73.hdf5
+

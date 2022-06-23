@@ -6,7 +6,7 @@
 
 # We will use deep learning models built in previous lectures to detect live emotion.
 # You need ./assets/models/trained/emotion_little_vgg_3.h5, which is produced by
-# EmotionDetectionTrain.py
+# EmotionDetection_Train.py
 
 
 # Imports.
