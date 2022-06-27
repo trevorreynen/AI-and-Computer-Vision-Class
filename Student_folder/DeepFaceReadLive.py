@@ -1,7 +1,7 @@
 # DeepFaceReadLive.py
 
 # CSCI-509 - AI & Computer Vision | Summer 2022 | USC Upstate
-#
+# Mon. 06/27/2022
 # Trevor Reynen
 
 # DeepFaceReader combines emotion, age, and gender recognition.
