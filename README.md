@@ -35,6 +35,7 @@ The instructions below are directly from my teacher. I will change/update if or 
    - pip install opencv-contrib-python==4.0.1.24 numpy==1.19.5 pyyaml matplotlib pillow imageio tqdm six imutils
    - pip install https://pypi.python.org/packages/da/06/bd3e241c4eb0a662914b3b4875fc52dd176a9db0d4a2c915ac2ad8800e9e/dlib-19.7.0-cp36-cp36m-win_amd64.whl#md5=b7330a5b2d46420343fbed5df69e6a3f
       - For me, just doing "pip install dlib" did not work. The only way to install dlib is to run the command with the link above.
+      - This will possibly cause a few problems, at least for me it did. Once you install dlib 19.7.0, it will work for all programs using dlib except VirtualFace_Live.py. This problem is because it's not the correct version for that program but there is literally no way to properly update the version. It will just say something like "can't build wheel with that version of dlib" or similar.
    - pip install tensorflow==1.12.0
    - pip install keras==2.2.5
    - conda deactivate
