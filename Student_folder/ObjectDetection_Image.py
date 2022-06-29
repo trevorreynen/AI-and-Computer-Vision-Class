@@ -149,8 +149,8 @@ for image_path in TEST_IMAGE_PATHS:
     # Converts image from BGR to RGB.
     image_np = cv2.cvtColor(image_np, cv2.COLOR_BGR2RGB)
 
-    cv2.imshow('Image', image_np)
-    cv2.waitKey(2000)
+    #cv2.imshow('Image', image_np)
+    #cv2.waitKey(2000)
 
     # Expand dimensions of numpy array.
     image_np_expanded = np.expand_dims(image_np, axis=0)

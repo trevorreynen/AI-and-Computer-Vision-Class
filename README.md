@@ -58,7 +58,7 @@ In order to run the last two labs of my class, this research folder with the obj
 
 Any files and folders inside the ./Student_folder/research/ directory are a small portion of what I received from my teacher. However, I do know that he originally got them from the [TensorFlow Model Garden](https://github.com/tensorflow/models). So, if you were interested in what's missing or the subject, check that link out instead.
 
-***I deleted as much as I could from what my teacher gave me in order to save space AND maintain the ability to create the object_detection module required to run the ObjectDetection programs*** in the ./Student_folder/ directory. I still need to test this fact to make sure, but it should work fine. Follow the steps below.
+***I deleted as much as I could from what my teacher gave me in order to save space AND maintain the ability to create the object_detection module required to run the ObjectDetection programs*** in the ./Student_folder/ directory. ~~I still need to test this to make sure, but it should work fine.~~ UPDATE (6/29/22): I did test this on my laptop and I was able to create the object_detection model with the research folder even though I deleted a lot of things. I also tested the ObjectDetection programs and they also ran properly, so no problems atm. Follow the steps below.
 
 ### Steps to create the object_detection module (only need to do this once):
 1. Open Command Prompt and navigate to ./AI-and-Computer-Vision-Class/Student_folder/research/.
