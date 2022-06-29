@@ -5,4 +5,6 @@ Student_folder/assets/images/faces/
 Student_folder/__pycache__/
 Student_folder/assets/models/pretrained/weights.28-3.73.hdf5
 Student_folder/assets/models/vgg_face_weights.h5
+Student_folder/research/build/
+Student_folder/research/object_detection.egg-info/
 

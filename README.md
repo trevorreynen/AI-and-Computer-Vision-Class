@@ -68,9 +68,7 @@ Any files and folders inside the ./Student_folder/research/ directory are a smal
 3. Install Protobuf
    - **conda install -c anaconda protobuf**
    - NOTE: I need to test this, but I am not sure if that command alone allows the use of protoc or if something else is needed to be installed on the side. Will find out soon and change info as needed.
-4. Run the following Protobuf command within the research folder:
-   - **protoc object_detection/protos/*.proto --python_out=.**
-5. Run the following pip command, still within the research folder and conda env activated:
+4. Run the following pip command, still within the research folder and conda env activated:
    - **python -m pip install . --use-feature=in-tree-build**
 
 At this point, you will no longer need to bother with anything inside the ./Student_folder/research/ directory. Just ignore the research folder. You should now be able to go back to the Student_folder directory and run ObjectDetection_Image.py and ObjectDetection_Live.py without problems.
