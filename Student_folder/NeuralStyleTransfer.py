@@ -1,7 +1,7 @@
 # NeuralStyleTransfer.py
 
 # CSCI-509 - AI & Computer Vision | Summer 2022 | USC Upstate
-# Tue. 06.28.2022
+# Tue. 06/28/2022
 # Trevor Reynen
 
 # Neural Style Transfer in Keras.

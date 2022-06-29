@@ -43,10 +43,41 @@ The instructions below are directly from my teacher. I will change/update if or 
 
 ## Working with the Project and Running Code
 
-- Open Command Prompt and navigate to /AI-and-Computer-Vision-Class/Student_folder/.
+- Open Command Prompt and navigate to ./AI-and-Computer-Vision-Class/Student_folder/.
    - For me, the command is:  **cd "C:/GitHub/AI-and-Computer-Vision-Class/Student_folder"**
 - Activate the Anaconda environment.
    - **conda activate Summer2022**
 - Running one of the python files.
    - EX: **python BlurringImage.py**
+
+---
+
+## The final two labs and the ./Student_folder/research/ directory - IMPORTANT INFO
+
+In order to run the last two labs of my class, this research folder with the object_detection/ folder and setup.py inside is needed. It is used to create the object_detection module in our Virtual Environment, allowing the ability to run the necessary code.
+
+Any files and folders inside the ./Student_folder/research/ directory are a small portion of what I received from my teacher. However, I do know that he originally got them from the [TensorFlow Model Garden](https://github.com/tensorflow/models). So, if you were interested in what's missing or the subject, check that link out instead.
+
+***I deleted as much as I could from what my teacher gave me in order to save space AND maintain the ability to create the object_detection module required to run the ObjectDetection programs*** in the ./Student_folder/ directory. I still need to test this fact to make sure, but it should work fine. Follow the steps below.
+
+### Steps to create the object_detection module (only need to do this once):
+1. Open Command Prompt and navigate to ./AI-and-Computer-Vision-Class/Student_folder/research/.
+   - For me, the command is:  **cd "C:/GitHub/AI-and-Computer-Vision-Class/Student_folder/research"**
+2. Activate the Anaconda environment.
+   - **conda activate Summer2022**
+3. Install Protobuf
+   - **conda install -c anaconda protobuf**
+   - NOTE: I need to test this, but I am not sure if that command alone allows the use of protoc or if something else is needed to be installed on the side. Will find out soon and change info as needed.
+4. Run the following Protobuf command within the research folder:
+   - **protoc object_detection/protos/*.proto --python_out=.**
+5. Run the following pip command, still within the research folder and conda env activated:
+   - **python -m pip install . --use-feature=in-tree-build**
+
+At this point, you will no longer need to bother with anything inside the ./Student_folder/research/ directory. Just ignore the research folder. You should now be able to go back to the Student_folder directory and run ObjectDetection_Image.py and ObjectDetection_Live.py without problems.
+
+---
+
+# One Last Note
+
+The model needed for the labs **FaceRecognition.py** and **FaceRecognition_Matching.py**, called "**vgg_face_weights.h5**" is over 100 MB. For now, I will not be uploading it to GitHub inside this repository. If I find a link to the model I will either add it here or add code to the two FaceRecognition programs to download the model if it isn't already.
 

@@ -4,4 +4,5 @@ class_resources/
 Student_folder/assets/images/faces/
 Student_folder/__pycache__/
 Student_folder/assets/models/pretrained/weights.28-3.73.hdf5
+Student_folder/assets/models/vgg_face_weights.h5
 

@@ -115,7 +115,8 @@ train_generator = train_datagen.flow_from_directory(train_data_dir,
                                                     shuffle=True)
 
 validation_generator = validation_datagen.flow_from_directory(validation_data_dir,
-                                                              target_size=(img_rows, img_cols), color_mode='grayscale',
+                                                              target_size=(img_rows, img_cols),
+                                                              color_mode='grayscale',
                                                               class_mode='categorical',
                                                               batch_size=batch_size,
                                                               shuffle=True)
